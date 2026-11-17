@@ -14693,3 +14693,24 @@ install_symlink {
     installed_location: "lib64/libq3dtools_adreno.so",
     symlink_target: "/vendor/lib64/egl/libq3dtools_adreno.so",
 }
+
+// Inputs for the device-side pil-squasher genrule.  The IPA firmware is kept
+// as split .mdt/.b* blobs, so expose the main .mdt and its segments as
+// filegroups instead of reaching into the vendor tree with a relative path.
+filegroup {
+    name: "msm8998_common_vendor_ipa_fws_mdt",
+    srcs: [
+        "proprietary/vendor/firmware/ipa_fws.mdt",
+    ],
+}
+
+filegroup {
+    name: "msm8998_common_vendor_ipa_fws_segments",
+    srcs: [
+        "proprietary/vendor/firmware/ipa_fws.b00",
+        "proprietary/vendor/firmware/ipa_fws.b01",
+        "proprietary/vendor/firmware/ipa_fws.b02",
+        "proprietary/vendor/firmware/ipa_fws.b03",
+        "proprietary/vendor/firmware/ipa_fws.b04",
+    ],
+}
