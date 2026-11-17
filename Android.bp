@@ -303,7 +303,10 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libC2D2",
+    // The KGSL-backed blob is kept in the tree for reference, but the 6.6
+    // kernel has no KGSL.  hardware/qcom-caf/sdm660/media/c2d-shim provides
+    // the libC2D2.so that is actually installed.
+    name: "libC2D2_blob",
     owner: "xiaomi",
     strip: {
         none: true,
